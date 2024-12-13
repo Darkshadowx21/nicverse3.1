@@ -7,6 +7,7 @@ import './globals.css'
 import GoogleAdsScript from './components/GoogleAdsScript'
 import ConditionalAds from './components/ConditionalAds'
 import AdUnit from './components/AdUnit'
+import GoogleAnalytics from './components/GoogleAnalytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -50,6 +51,9 @@ export const metadata: Metadata = {
       height: 630,
     }],
   },
+  verification: {
+    google: '6JQqJ_bae-gvhPS88cObqIziQbXr2Ddx8XQTzf6T5P8',
+  },
 }
 
 export default function RootLayout({
@@ -59,6 +63,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <GoogleAdsScript />
         <ThemeProvider>

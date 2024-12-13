@@ -29,9 +29,9 @@ function YoutubeSolid(props: React.SVGProps<SVGSVGElement>) {
 }
 
 const SOCIAL_LINKS = [
-    { icon: TwitterSolid, href: "https://twitter.com", label: "Twitter" },
+    { icon: TwitterSolid, href: "https://twitter.com/notnicto", label: "Twitter" },
     { icon: GithubSolid, href: "https://github.com/notnicto", label: "GitHub" },
-    { icon: DiscordIcon, href: "discord.gg/mYxjckhRNH", label: "Discord" },
+    { icon: DiscordIcon, href: "https://discord.gg/mYxjckhRNH", label: "Discord" },
     { icon: CurseForgeIcon, href: "https://www.curseforge.com/members/notnicto", label: "CurseForge" },
     { icon: YoutubeSolid, href: "https://www.youtube.com/@notnicto", label: "YouTube" },
 ]

@@ -66,9 +66,9 @@ export default function TermsPage() {
                     </div>
                     <ul className="space-y-4">
                         {[
-                            "Showcase the Addon/Texture Pack in videos with proper credit to me, notnicto and a link to MCPEDL/Curseforge",
+                            "Showcase the Addon/Texture Pack in videos with proper credit to me, notnicto and a link to MCPEDL/CURSEFORGE/NICVERSE",
                             "Modify the Addon/Texture Pack for personal use",
-                            "Share the texture pack using the MCPEDL/Curseforge link"
+                            "Share the texture pack using the MCPEDL/Curseforge/NICVERSE link"
                         ].map((item, index) => (
                             <motion.li 
                                 key={index}
@@ -95,7 +95,7 @@ export default function TermsPage() {
                         {[
                             "Claim the Addon/Texture Pack as your own",
                             "Modify the Addon/Texture Pack for public use",
-                            "Upload the Addon/Texture Pack on any third-party website (Ex: 9Minecraft, MinecraftMods)",
+                            "Upload the Addon/Texture Pack on any third-party website (Ex: 9Minecraft, MinecraftMods) or App",
                             "Showcase or use the Addon/Texture Pack without providing proper credits",
                             "Use mediafire or direct links for downloading the pack"
                         ].map((item, index) => (

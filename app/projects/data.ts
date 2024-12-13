@@ -3,16 +3,17 @@ import { Project } from './types';
 // terms of use
 const defaultTerms = {
     allowed: [
-        'Showcase the Addon/Texture Pack in videos with proper credit to me, notnicto and a link to MCPEDL/CURSEFORGE',
+        'Showcase the Addon/Texture Pack in videos with proper credit to me, notnicto and a link to MCPEDL/CURSEFORGE/NICVERSE',
         'Modify the Addon/Texture Pack for personal use',
-        'Share the texture pack using the MCPEDL/Curseforge link'
+        'Share the texture pack using the MCPEDL/Curseforge/NICVERSE link'
     ],
     prohibited: [
         'Claim the Addon/Texture Pack as your own',
-        'Modify the Addon/Texture Pack for public use',
-        'Upload the Addon/Texture Pack on any third-party website (Ex: 9Minecraft, MinecraftMods)',
+        'Modify the Addon/Texture Pack for public use', 
+        'Upload the Addon/Texture Pack on any third-party website (Ex: 9Minecraft, MinecraftMods) or App',
         'Showcase or use the Addon/Texture Pack without providing proper credits',
-        'Use mediafire or direct links for downloading the pack'
+        'Use mediafire or direct links for downloading the pack',
+        'Legal actions will be pursued against those who fail to comply with these terms of use'
     ]
 };
 
@@ -75,13 +76,7 @@ export const projects: Project[] = [
                 link: 'https://mcpedl.com/femboy-totem/'
             }
         ],
-        terms: {
-            ...defaultTerms,
-            prohibited: [
-                ...defaultTerms.prohibited,
-                'Legal actions will be pursued against those who fail to comply with these terms of use'
-            ]
-        }
+        terms: defaultTerms
     },
     {
         id: 'Nightfall',
@@ -301,4 +296,4 @@ export const projects: Project[] = [
         terms: defaultTerms
     },
 
-]; 
+];
