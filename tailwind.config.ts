@@ -25,7 +25,18 @@ const config: Config = {
     			},
     			primary: {
     				DEFAULT: 'hsl(var(--primary))',
-    				foreground: 'hsl(var(--primary-foreground))'
+    				foreground: 'hsl(var(--primary-foreground))',
+    				50: '#f0f9ff',
+    				100: '#e0f2fe',
+    				200: '#bae6fd',
+    				300: '#7dd3fc',
+    				400: '#38bdf8',
+    				500: '#0ea5e9',
+    				600: '#0284c7',
+    				700: '#0369a1',
+    				800: '#075985',
+    				900: '#0c4a6e',
+    				950: '#082f49',
     			},
     			muted: {
     				DEFAULT: 'hsl(var(--muted))',
@@ -54,11 +65,23 @@ const config: Config = {
     				to: {
     					height: '0'
     				}
-    			}
+    			},
+    			'gradient-x': {
+    				'0%, 100%': {
+    					'background-size': '200% 200%',
+    					'background-position': 'left center'
+    				},
+    				'50%': {
+    					'background-size': '200% 200%',
+    					'background-position': 'right center'
+    				}
+    			},
     		},
     		animation: {
     			'accordion-down': 'accordion-down 0.2s ease-out',
-    			'accordion-up': 'accordion-up 0.2s ease-out'
+    			'accordion-up': 'accordion-up 0.2s ease-out',
+    			'gradient-x': 'gradient-x 15s ease infinite',
+    			'pulse': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
     		}
     	}
     },

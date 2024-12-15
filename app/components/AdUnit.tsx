@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface AdUnitProps {
     adSlot: string;
@@ -10,37 +10,60 @@ interface AdUnitProps {
 
 export default function AdUnit({ adSlot, adFormat = 'auto', className = '' }: AdUnitProps) {
     const adRef = useRef<HTMLDivElement>(null);
+    const [isError, setIsError] = useState(false);
+    const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
     useEffect(() => {
-        if (!adSlot || !process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID) return;
+        if (!adSlot || !clientId || isError) return;
 
-        if (adRef.current) {
+        const loadAd = async () => {
+            if (!adRef.current) return;
+
             try {
                 const adsbygoogle = (window as any).adsbygoogle || [];
+
+                // Clean up any existing ad
+                if (adRef.current.firstChild) {
+                    adRef.current.innerHTML = '';
+                }
+
                 const adElement = document.createElement('ins');
                 adElement.className = 'adsbygoogle';
                 adElement.style.display = 'block';
-                adElement.dataset.adClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+                adElement.dataset.adClient = clientId;
                 adElement.dataset.adSlot = adSlot;
                 adElement.dataset.adFormat = adFormat;
                 adElement.dataset.fullWidthResponsive = 'true';
 
-                // Clear previous ad if any
-                if (adRef.current.firstChild) {
-                    adRef.current.innerHTML = '';
-                }
-                
                 adRef.current.appendChild(adElement);
-                
-                // Push the ad only if adsbygoogle is loaded
+
+                // Wait for adsbygoogle to be ready
                 if (typeof adsbygoogle.push === 'function') {
                     adsbygoogle.push({});
+                } else {
+                    // Retry after a short delay if adsbygoogle is not ready
+                    setTimeout(() => {
+                        if (typeof adsbygoogle.push === 'function') {
+                            adsbygoogle.push({});
+                        }
+                    }, 1000);
                 }
             } catch (err) {
                 console.error('Error loading ad:', err);
+                setIsError(true);
             }
-        }
-    }, [adSlot, adFormat]);
+        };
+
+        loadAd();
+
+        return () => {
+            if (adRef.current) {
+                adRef.current.innerHTML = '';
+            }
+        };
+    }, [adSlot, adFormat, clientId, isError]);
+
+    if (isError || !adSlot || !clientId) return null;
 
     return (
         <div ref={adRef} className={`min-h-[100px] w-full ${className}`}>

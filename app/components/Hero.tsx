@@ -28,7 +28,7 @@ export default function Hero() {
                     <h2 className="text-white text-2xl sm:text-3xl font-medium tracking-wide">
                         WELCOME TO
                     </h2>
-                    
+
                     <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-wider">
                         <span className="text-[#FF00FF] flex justify-center gap-3 sm:gap-4 md:gap-5">
                             <span>N</span>
@@ -51,8 +51,8 @@ export default function Hero() {
                             size="lg"
                             className="bg-black/50 hover:bg-black/70 text-white px-12 py-6 
                                      text-xl font-medium tracking-widest uppercase transition-all 
-                                     duration-300 hover:scale-105 rounded-lg
-                                     backdrop-blur-sm"
+                                     duration-300 hover:scale-105 rounded-xl 
+                                      backdrop-blur-sm"
                             onClick={() => router.push('/projects')}
                         >
                             Explore
@@ -62,6 +62,6 @@ export default function Hero() {
             </div>
         </div>
 
-       
+
     )
 }

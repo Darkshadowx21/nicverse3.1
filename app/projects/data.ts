@@ -1,5 +1,14 @@
 import { Project } from './types';
 
+// Define the default author
+const defaultAuthor = {
+    name: 'notNicto',
+    avatar: '/notNicto.png',
+    role: 'Creator'
+
+
+} as const;
+
 // terms of use
 const defaultTerms = {
     allowed: [
@@ -9,13 +18,22 @@ const defaultTerms = {
     ],
     prohibited: [
         'Claim the Addon/Texture Pack as your own',
-        'Modify the Addon/Texture Pack for public use', 
+        'Modify the Addon/Texture Pack for public use',
         'Upload the Addon/Texture Pack on any third-party website (Ex: 9Minecraft, MinecraftMods) or App',
         'Showcase or use the Addon/Texture Pack without providing proper credits',
         'Use mediafire or direct links for downloading the pack',
         'Legal actions will be pursued against those who fail to comply with these terms of use'
     ]
 };
+
+// First, define your authors (you can put this at the top of data.ts)
+const authors = {
+    keshew: {
+        name: 'Keshew1313',
+        avatar: '/keshew1313.png',
+        role: 'Collaborator'
+    }
+} as const;
 
 export const projects: Project[] = [
     {
@@ -31,7 +49,7 @@ export const projects: Project[] = [
             'Chat helper, Quick craft, brewing guide',
             'Item durability viewer',
             'Hud clock and compass',
-            'Many more features (See in-game changelog)'
+            'Many more features'
         ],
         category: 'texture-pack',
         version: '1.21+',
@@ -76,7 +94,8 @@ export const projects: Project[] = [
                 link: 'https://mcpedl.com/femboy-totem/'
             }
         ],
-        terms: defaultTerms
+        terms: defaultTerms,
+        author: defaultAuthor,
     },
     {
         id: 'Nightfall',
@@ -92,7 +111,6 @@ export const projects: Project[] = [
             'Chat helper, Quick craft, brewing guide',
             'Item durability viewer',
             'Hud clock and compass',
-            'Many more (Check the changelog section in-game)'
         ],
         category: 'texture-pack',
         version: '1.21+',
@@ -135,7 +153,8 @@ export const projects: Project[] = [
                 link: 'https://mcpedl.com/femboy-totem/'
             }
         ],
-        terms: defaultTerms
+        terms: defaultTerms,
+        author: defaultAuthor,
     },
     {
         id: 'Neo',
@@ -174,8 +193,21 @@ export const projects: Project[] = [
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/neo-ui-pack-and-shader/download/5847904',
         credits: [
+            {
+                name: 'Bedrock tweaks',
+                author: 'DrAv0011',
+                project: 'Bedrock Tweaks',
+                link: 'https://bedrocktweaks.net/'
+            },
+            {
+                name: 'Fps counter',
+                author: 'Chainsketch',
+                project: 'FPS Counter Pack',
+                link: 'https://mcpedl.com/fps-counter-pack/'
+            }
         ],
-        terms: defaultTerms
+        terms: defaultTerms,
+        author: defaultAuthor,
     },
     {
         id: 'QuickLoot',
@@ -197,7 +229,8 @@ export const projects: Project[] = [
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/5876850',
         credits: [],
-        terms: defaultTerms
+        terms: defaultTerms,
+        author: defaultAuthor,
     },
     {
         id: 'notnicto',
@@ -218,7 +251,8 @@ export const projects: Project[] = [
         ],
         downloadUrl: '#',
         credits: [],
-        terms: defaultTerms
+        terms: defaultTerms,
+        author: defaultAuthor,
     },
     {
         id: 'crafteverything',
@@ -241,7 +275,8 @@ export const projects: Project[] = [
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/5876850',
         credits: [],
-        terms: defaultTerms
+        terms: defaultTerms,
+        author: defaultAuthor,
     },
     {
         id: 'Akinator',
@@ -266,7 +301,8 @@ export const projects: Project[] = [
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/maps/akinator/download/5582646',
         credits: [],
-        terms: defaultTerms
+        terms: defaultTerms,
+        author: defaultAuthor,
     },
     {
         id: 'Achievements',
@@ -274,10 +310,10 @@ export const projects: Project[] = [
         shortDescription: 'A map designed for Minecraft Bedrock Edition, which helps players complete achievements, was added after version 1.21.',
         fullDescription: 'A map designed for Minecraft Bedrock Edition, which helps players complete achievements, was added after version 1.21. Complete all the achievements added in the Minecraft Tricky Trails update, including ReVaulting, Who Needs Rockets?, Crafters Crafting Crafters, and Over-Overkill in the Bedrock Edition 1.21 update. Completing all four achievements on this map is very easy! Minecraft 1.21 update brings five new achievements to Bedrock Edition.',
         features: [
-            'ReVaulting - Unlock this achievement by using a vault',
-            'Who Needs Rockets? - Unlock this achievement by using a wind charge to boost your elytra flight',
-            'Crafters Crafting Crafters - Unlock this achievement by crafting a crafter',
-            'Over-Overkill - Unlock this achievement by dealing 50+ damage in a single hit',
+            'ReVaulting',
+            'Who Needs Rockets?',
+            'Crafters Crafting Crafters',
+            'Over-Overkill',
             'Heart transplant',
         ],
         category: 'map',
@@ -285,15 +321,112 @@ export const projects: Project[] = [
         size: '400kb',
         stars: 4.5,
         previewImages: [
-            '/images/achievements/achievements-world.png  ',
-            '/images/achievements/achievements-world-start.png',
-            '/images/achievements/achievements-world-map.png',
-            '/images/achievements/achievements-world-info.png',
-            '/images/achievements/achievements-world-screen.png',
+            '/images/achievements/achievements-world.png'
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/maps/achievements-world/download/5520391',
         credits: [],
-        terms: defaultTerms
+        terms: defaultTerms,
+        author: defaultAuthor,
     },
+    {
+        id: 'Shadow-smash',
+        title: 'Shadow Smash',
+        shortDescription: 'Shadow Smash – Redefine Your Minecraft PvP Experience',
+        fullDescription: 'Shadow Smash, a Minecraft PvP texture pack designed to enhance your gameplay with a sleek purple theme and cutting-edge features. From intense battles to seamless crafting, this pack delivers everything you need to dominate your opponents in style. With its striking visuals and performance-focused design, Shadow Smash transforms every moment into an unforgettable adventure.',
+        features: [
+            'Brand new particles',
+            'Custom sky 🌌',
+            'Quick crafting ⚒️',
+            'Quick chat 💬',
+            'Quick settings ⚙️ (cam perspective, FOV, render distance etc)',
+            'Trade preview',
+            'Hit particles ✨',
+            'Block breaking animations',
+            'Outlined ores',
+            'Invisible item frames',
+            'Dragon wings elytra',
+            'Crown 👑 model instead of golden helmet',
+            'Animated totem!'
+        ],
+        category: 'texture-pack',
+        version: '1.20+',
+        size: '5.38mb',
+        stars: 4.2,
+        previewImages: [
+            '/images/shadowsmash/shadow-smash.png',
+            '/images/shadowsmash/shadow-smash-ui.png',
+            '/images/shadowsmash/3k-special.png',
+            '/images/shadowsmash/shadow-smash-animation.png',
+            '/images/shadowsmash/shadow-smash-color.png',
+            '/images/shadowsmash/shadow-smash-elytra.png',
+            '/images/shadowsmash/shadow-smash-ores.png',
+            '/images/shadowsmash/shadow-smash-ulilities.png',
+        ],
+        downloadUrl: 'https://direct-link.net/1040896/shadow-smash',
+        credits: [
+            {
+                name: 'Keshew1313',
+                author: 'Keshew1313',
+                project: 'Shadow Smash',
+                link: 'https://www.youtube.com/@Keshew1313'
+            },
+            {
+                name: 'Bedrock tweaks',
+                author: 'DrAv0011',
+                project: 'Bedrock Tweaks',
+                link: 'https://bedrocktweaks.net/'
+            },
+            {
+                name: 'Zorrocraf',
+                author: 'Zorrocraf',
+                project: 'You tube channel',
+                link: 'https://www.youtube.com/@ZorroCraft'
+            },
+            {
+                name: 'Zorrocraf',
+                author: 'Zorrocraf',
+                project: 'Totem Animation',
+                link: 'https://www.youtube.com/@ZorroCraft'
+            }
+        ],
+        terms: defaultTerms,
+        author: authors.keshew,
+    },
+    {
+        id: 'villager-pack',
+        title: 'TalkingVillager Pack',
+        shortDescription: 'Experience Minecraft like never before with the Talking Villagers Pack!',
+        fullDescription: 'Experience Minecraft like never before with the Talking Villagers Pack! This pack brings your villagers to life with funny and random dialogues, making your Minecraft world more entertaining than ever—perfect for those playing solo. It is super necessary if you don\'t have friends like me 🥲',
+        features: [
+            'Funny random dialogues 💬',
+            'Casual villager chats',
+            'Achievement friendly',
+            'Enhanced interactions',
+            'Perfect for solo play',
+            'Easy to install',
+            'No gameplay changes',
+            'Compatible with other packs'
+        ],
+        category: 'addon',
+        version: '1.20+',
+        size: '410kb',
+        stars: 4.0,
+        previewImages: [
+            '/images/villager/villager.png',
+            '/images/villager/villager-pack-ui.png'
+        ],
+        downloadUrl: 'https://link-target.net/1040896/talking-villagers-pack',
+        credits: [
+            {
+                name: 'Keshew1313',
+                author: 'Keshew1313',
+                project: 'Shadow Smash',
+                link: 'https://www.youtube.com/@Keshew1313'
+            }
+        ],
+        terms: defaultTerms,
+        author: authors.keshew,
+    },
+
 
 ];

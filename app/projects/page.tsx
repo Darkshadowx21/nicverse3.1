@@ -6,6 +6,10 @@ import ProjectCard from './components/ProjectCard';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
+import Breadcrumb from '../components/Breadcrumb';
+import FAQ from '../components/FAQ';
+import { faqs } from '../data/faqs';
+
 
 const ProjectsPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -51,6 +55,12 @@ const ProjectsPage = () => {
 
   return (
     <div className="container py-4 px-4 sm:py-8 sm:px-6">
+      <Breadcrumb
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Projects' }
+        ]}
+      />
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-transparent bg-clip-text">
           Minecraft Projects
@@ -139,6 +149,9 @@ const ProjectsPage = () => {
           )}
         </div>
       </Tabs>
+
+      <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
+      <FAQ faqs={faqs} />
     </div>
   );
 };

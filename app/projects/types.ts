@@ -10,6 +10,11 @@ export interface Project {
   stars: number;
   previewImages: string[];
   downloadUrl: string;
+  author?: {
+    name: string;
+    avatar: string;
+    role: string;
+  };
   credits: {
     name: string;
     project: string;

@@ -8,10 +8,10 @@ import { projects } from '../data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
 } from "@/components/ui/accordion";
 import SpoilerPreview from '../components/SpoilerPreview';
 import { FeaturePreview } from '../components/FeaturePreview';
@@ -19,6 +19,7 @@ import ImageGallery from '../components/ImageGallery';
 import { AdsDialog } from '../components/AdsDialog';
 import Script from 'next/script'
 import AdUnit from '../../components/AdUnit';
+import Breadcrumb from '../../components/Breadcrumb';
 
 const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
     const router = useRouter();
@@ -26,6 +27,46 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
     const [galleryOpen, setGalleryOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [showAdsDialog, setShowAdsDialog] = useState(false);
+
+    const getCategoryStyles = (category: string) => {
+        switch (category) {
+            case 'texture-pack':
+                return {
+                    text: 'text-blue-600 dark:text-blue-400',
+                    bg: 'bg-blue-500/10',
+                    border: 'border-blue-500/30',
+                    gradient: 'from-blue-500 to-blue-600'
+                };
+            case 'addon':
+                return {
+                    text: 'text-green-600 dark:text-green-400',
+                    bg: 'bg-green-500/10',
+                    border: 'border-green-500/30',
+                    gradient: 'from-green-500 to-green-600'
+                };
+            case 'skin':
+                return {
+                    text: 'text-orange-600 dark:text-orange-400',
+                    bg: 'bg-orange-500/10',
+                    border: 'border-orange-500/30',
+                    gradient: 'from-orange-500 to-orange-600'
+                };
+            case 'map':
+                return {
+                    text: 'text-red-600 dark:text-red-400',
+                    bg: 'bg-red-500/10',
+                    border: 'border-red-500/30',
+                    gradient: 'from-red-500 to-red-600'
+                };
+            default:
+                return {
+                    text: 'text-purple-600 dark:text-purple-400',
+                    bg: 'bg-purple-500/10',
+                    border: 'border-purple-500/30',
+                    gradient: 'from-purple-500 to-purple-600'
+                };
+        }
+    };
 
     if (!project) {
         return (
@@ -37,6 +78,8 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
             </div>
         );
     }
+
+    const categoryStyle = getCategoryStyles(project.category);
 
     const jsonLd = {
         '@context': 'https://schema.org',
@@ -60,50 +103,85 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <div className="container max-w-4xl py-4 px-4 sm:py-8 sm:px-6">
-                <Button variant="ghost" onClick={() => router.back()} className="mb-4">
-                    <ArrowLeft className="w-4 h-4 mr-2" /> Back
-                </Button>
-
-                <AdUnit 
-                    adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_TOP_SLOT || ''} 
-                    className="my-6"
+            <div className="container max-w-4xl mx-auto px-4 py-4 sm:px-6 sm:py-8 lg:py-12">
+                <Breadcrumb
+                    items={[
+                        { label: 'Home', href: '/' },
+                        { label: 'Projects', href: '/projects' },
+                        { label: project.title }
+                    ]}
+                    className="text-sm sm:text-base"
                 />
 
-                <div className="space-y-6">
+                <AdUnit
+                    adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_TOP_SLOT || ''}
+                    className="my-4 sm:my-6"
+                />
+
+                <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                     {/* Header */}
-                    <header className="space-y-6">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                            <h1 className="text-2xl sm:text-3xl font-bold">{project.title}</h1>
-                            <Badge variant="secondary" className="w-fit">
+                    <header className="space-y-4">
+                        {/* Title and Category Row */}
+                        <div className="flex items-start justify-between gap-3">
+                            <h1 className={`text-xl sm:text-2xl lg:text-3xl font-bold ${categoryStyle.text} break-words flex-1`}>
+                                {project.title}
+                            </h1>
+                            <Badge
+                                variant="outline"
+                                className={`shrink-0 text-xs sm:text-sm ${categoryStyle.border} ${categoryStyle.bg} ${categoryStyle.text}`}
+                            >
                                 {project.category}
                             </Badge>
                         </div>
 
-                        <div className="flex flex-wrap items-center gap-4 text-sm" aria-label="Project statistics">
-                            <span className="flex items-center gap-1">
-                                <Star className="w-4 h-4" aria-hidden="true" />
-                                <span aria-label="Star rating">{project.stars}</span>
-                            </span>
-                            <span className="text-muted-foreground">
-                                <span className="sr-only">Version:</span> {project.version}
-                            </span>
-                            <span className="text-muted-foreground">
-                                <span className="sr-only">Size:</span> {project.size}
-                            </span>
+                        {/* Author and Stats Row */}
+                        <div className="flex items-center justify-between gap-4">
+                            {project.author && (
+                                <div className="flex items-center gap-3">
+                                    <div className="relative w-8 h-8">
+                                        <Image
+                                            src={project.author.avatar}
+                                            alt={project.author.name}
+                                            fill
+                                            className="rounded-full object-cover border-2 border-gray-200 dark:border-gray-800"
+                                            sizes="32px"
+                                            priority
+                                        />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-sm font-medium">
+                                            {project.author.name}
+                                        </span>
+                                        <span className="text-xs text-muted-foreground">
+                                            {project.author.role}
+                                        </span>
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="flex items-center gap-3" aria-label="Project statistics">
+                                <span className="flex items-center gap-1">
+                                    <Star className={`w-4 h-4 ${categoryStyle.text}`} />
+                                    <span className="text-sm">{project.stars}</span>
+                                </span>
+                                <span className="text-sm text-muted-foreground">
+                                    {project.version}
+                                </span>
+                                <span className="text-sm text-muted-foreground">
+                                    {project.size}
+                                </span>
+                            </div>
                         </div>
                     </header>
 
                     {/* Description */}
-                    <p className="text-muted-foreground">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                         {project.fullDescription}
                     </p>
 
-                   
-
                     {/* Preview Image */}
-                    <div 
-                        className="mb-6 cursor-pointer"
+                    <div
+                        className="cursor-pointer rounded-lg overflow-hidden"
                         onClick={() => {
                             setSelectedImageIndex(0);
                             setGalleryOpen(true);
@@ -114,32 +192,32 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                         <SpoilerPreview image={project.previewImages[0]} />
                     </div>
 
-
-
-                     {/* Features Section */}
-                     {project.features.length > 0 && (
-                        <div>
-                            <h2 className="font-semibold mb-4">KEY FEATURES</h2>
+                    {/* Features Section */}
+                    {project.features.length > 0 && (
+                        <div className="space-y-3 sm:space-y-4">
+                            <h2 className="text-lg sm:text-xl font-semibold">KEY FEATURES</h2>
                             <FeaturePreview features={project.features} />
                         </div>
                     )}
 
-                    <AdUnit 
-                        adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_MIDDLE_SLOT || ''} 
+                    <AdUnit
+                        adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_MIDDLE_SLOT || ''}
                         className="my-6"
                     />
 
                     {/* Existing Screenshots & Credits & Terms */}
                     <Accordion type="single" collapsible className="w-full">
-                        <AccordionItem value="screenshots" className="border-blue-500/20">
-                            <AccordionTrigger className="hover:text-blue-500">
-                                <span className="text-blue-500 font-semibold">SCREENSHOTS</span>
+                        <AccordionItem value="screenshots" className={`border-${categoryStyle.text}/20`}>
+                            <AccordionTrigger className={`hover:${categoryStyle.text}`}>
+                                <span className={`${categoryStyle.text} font-semibold text-sm sm:text-base`}>
+                                    SCREENSHOTS
+                                </span>
                             </AccordionTrigger>
                             <AccordionContent>
-                                <div className="grid grid-cols-2 gap-2">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
                                     {project.previewImages.map((img, idx) => (
-                                        <div 
-                                            key={idx} 
+                                        <div
+                                            key={idx}
                                             className="relative aspect-[16/9] rounded-lg overflow-hidden cursor-pointer group"
                                             onClick={() => {
                                                 setSelectedImageIndex(idx);
@@ -174,7 +252,7 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                                     {project.credits.map((credit, index) => (
                                         <li key={index}>
                                             {credit.name}: {credit.author} [
-                                            <a 
+                                            <a
                                                 href={credit.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -216,19 +294,20 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                         </AccordionItem>
                     </Accordion>
 
-                    <AdUnit 
-                        adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_BOTTOM_SLOT || ''} 
+                    <AdUnit
+                        adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_BOTTOM_SLOT || ''}
                         className="my-6"
                     />
 
                     {/* Download Button */}
-                    <div className="flex justify-center gap-4">
-                        <Button 
-                            size="lg" 
-                            className="w-full max-w-md bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white"
+                    <div className="flex justify-center px-4 sm:px-0">
+                        <Button
+                            size="lg"
+                            className={`w-full max-w-md bg-gradient-to-r ${categoryStyle.gradient} 
+                                hover:opacity-90 text-white text-sm sm:text-base py-6 sm:py-8`}
                             onClick={() => setShowAdsDialog(true)}
                         >
-                            <Download className="w-5 h-5 mr-2" /> Download
+                            <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> Download
                         </Button>
                     </div>
 

@@ -117,8 +117,9 @@ export default function ContactPage() {
                         >
                             <motion.a
                                 href="mailto:info@notnicto.com"
-                                className="flex-1 px-6 py-3 rounded-lg font-medium bg-purple-600 hover:bg-purple-700 
-                          text-white text-center transition-all"
+                                className="flex-1 px-6 py-3 rounded-full font-medium bg-purple-600 hover:bg-purple-700 
+                                  text-white text-center transition-all shadow-lg hover:shadow-xl
+                                  hover:shadow-purple-500/25"
                                 whileHover={{ scale: 1.05 }}
                                 variants={itemVariants}
                             >
@@ -127,10 +128,11 @@ export default function ContactPage() {
 
                             <motion.button
                                 onClick={() => router.push('/projects')}
-                                className="flex-1 px-6 py-3 rounded-lg font-medium 
-                          bg-gray-100 hover:bg-gray-200 text-gray-900
-                          dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white 
-                          text-center transition-all"
+                                className="flex-1 px-6 py-3 rounded-full font-medium 
+                                  bg-gray-100 hover:bg-gray-200 text-gray-900
+                                  dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white 
+                                  text-center transition-all shadow-lg hover:shadow-xl
+                                  hover:shadow-gray-500/25 dark:hover:shadow-gray-950/50"
                                 whileHover={{ scale: 1.05 }}
                                 variants={itemVariants}
                             >
