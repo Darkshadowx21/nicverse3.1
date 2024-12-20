@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Download } from 'lucide-react';
 import AdUnit from '../../components/AdUnit';
+import { useAdsenseContext } from '../../components/AdsenseProvider';
 
 interface AdsDialogProps {
     isOpen: boolean;
@@ -22,6 +23,7 @@ interface AdsDialogProps {
 export function AdsDialog({ isOpen, onClose, onComplete, downloadUrl }: AdsDialogProps) {
     const [timeLeft, setTimeLeft] = useState(15);
     const [hasDownloaded, setHasDownloaded] = useState(false);
+    const { isReady } = useAdsenseContext();
 
     useEffect(() => {
         let timer: NodeJS.Timeout;
@@ -65,15 +67,15 @@ export function AdsDialog({ isOpen, onClose, onComplete, downloadUrl }: AdsDialo
                 <DialogHeader>
                     <DialogTitle>Preparing Your Download</DialogTitle>
                     <DialogDescription>
-                        {timeLeft > 0 
+                        {timeLeft > 0
                             ? `Your download will be ready in ${timeLeft} seconds.`
                             : 'Your download is ready!'
                         }
                     </DialogDescription>
                 </DialogHeader>
                 <div className="flex flex-col items-center gap-4 py-4">
-                    <AdUnit 
-                        adSlot={process.env.NEXT_PUBLIC_ADSENSE_DOWNLOAD_SLOT || ''} 
+                    <AdUnit
+                        adSlot={process.env.NEXT_PUBLIC_ADSENSE_DOWNLOAD_SLOT || ''}
                         adFormat="rectangle"
                         className="w-full min-h-[250px]"
                     />
