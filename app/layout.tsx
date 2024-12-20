@@ -4,33 +4,44 @@ import { ThemeProvider } from "./components/ThemeProvider"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import './globals.css'
-import GoogleAdsScript from './components/GoogleAdsScript'
-import ConditionalAds from './components/ConditionalAds'
+// import GoogleAdsScript from './components/GoogleAdsScript'
+// import ConditionalAds from './components/ConditionalAds'
 import AdUnit from './components/AdUnit'
 import GoogleAnalytics from './components/GoogleAnalytics'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://notnicto.com'),
-  alternates: {
-    canonical: '/',
+  title: {
+    template: '%s | NicVerse',
+    default: 'NicVerse | Minecraft Bedrock Creations',
   },
+  description: 'Discover high-quality Minecraft Bedrock texture packs, add-ons, skins, and maps at NicVerse. Enhance your Minecraft experience with our curated collection.',
+  keywords: 'minecraft, bedrock, texture packs, addons, skins, maps, nicverse',
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
-  title: 'NicVerse | Minecraft Bedrock Creations',
-  description: 'Discover high-quality Minecraft Bedrock texture packs, add-ons, skins, and maps at NicVerse. Enhance your Minecraft experience with our curated collection.',
-  keywords: 'minecraft, bedrock, texture packs, addons, skins, maps, nicverse',
   openGraph: {
+    type: 'website',
+    siteName: 'NicVerse',
     title: 'NicVerse | Minecraft Bedrock Creations',
     description: 'Discover high-quality Minecraft Bedrock texture packs, add-ons, skins, and maps.',
-    type: 'website',
     url: 'https://notnicto.com',
     images: [
       {
@@ -65,13 +76,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <GoogleAnalytics />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
-        <GoogleAdsScript />
+        {/* <GoogleAdsScript /> */}
         <ThemeProvider>
           <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors">
             <Header />
-            <ConditionalAds />
+            {/* <ConditionalAds /> */}
             <main className="flex-grow">
               {children}
             </main>

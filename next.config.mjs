@@ -1,24 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export',
+  output: 'export',
   images: {
     unoptimized: true,
   },
-  // distDir: 'out',
   trailingSlash: true,
-  async headers() {
-    return [
-      {
-        source: '/downloads/:path*',
-        headers: [
-          {
-            key: 'Content-Disposition',
-            value: 'attachment',
-          },
-        ],
-      },
-    ];
-  },
+  // Remove any redirects that might cause loops
 }
 
 export default nextConfig
