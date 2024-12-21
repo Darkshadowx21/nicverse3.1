@@ -41,7 +41,7 @@ export function AdsDialog({ isOpen, onClose, onComplete, downloadUrl }: AdsDialo
 
     useEffect(() => {
         if (isOpen) {
-            setTimeLeft(15);
+            setTimeLeft(20);
             setHasDownloaded(false);
         }
     }, [isOpen]);

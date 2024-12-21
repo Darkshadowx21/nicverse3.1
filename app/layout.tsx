@@ -98,7 +98,7 @@ export default function RootLayout({
                 {children}
               </main>
 
-              <div className="container mx-auto px-4">
+              <div className="container mx-auto px-4 lg:px-32 xl:px-64">
                 <AdErrorBoundary>
                   <AdUnit
                     adSlot={process.env.NEXT_PUBLIC_ADSENSE_BOTTOM_SLOT || ''}

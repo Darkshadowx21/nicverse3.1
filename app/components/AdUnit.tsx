@@ -7,9 +7,10 @@ interface AdUnitProps {
     adSlot: string;
     adFormat?: 'auto' | 'fluid' | 'rectangle';
     className?: string;
+    style?: React.CSSProperties;
 }
 
-export default function AdUnit({ adSlot, adFormat = 'auto', className = '' }: AdUnitProps) {
+export default function AdUnit({ adSlot, adFormat = 'auto', className = '', style }: AdUnitProps) {
     const adRef = useRef<HTMLDivElement>(null);
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -24,6 +25,8 @@ export default function AdUnit({ adSlot, adFormat = 'auto', className = '' }: Ad
 
             try {
                 setIsLoading(true);
+                await new Promise(resolve => setTimeout(resolve, Math.random() * 500));
+
                 const adsbygoogle = (window as any).adsbygoogle || [];
 
                 if (adRef.current.firstChild) {
@@ -40,22 +43,26 @@ export default function AdUnit({ adSlot, adFormat = 'auto', className = '' }: Ad
 
                 adRef.current.appendChild(adElement);
 
-                let retries = 0;
-                const maxRetries = 3;
+                if (typeof adsbygoogle.push === 'function') {
+                    adsbygoogle.push({});
+                    setIsLoading(false);
+                } else {
+                    const checkAdsbyGoogle = setInterval(() => {
+                        if (typeof adsbygoogle.push === 'function') {
+                            adsbygoogle.push({});
+                            setIsLoading(false);
+                            clearInterval(checkAdsbyGoogle);
+                        }
+                    }, 300);
 
-                const tryPushAd = () => {
-                    if (typeof adsbygoogle.push === 'function') {
-                        adsbygoogle.push({});
-                        setIsLoading(false);
-                    } else if (retries < maxRetries) {
-                        retries++;
-                        setTimeout(tryPushAd, 1000);
-                    } else {
-                        throw new Error('Failed to load adsbygoogle after retries');
-                    }
-                };
-
-                tryPushAd();
+                    setTimeout(() => {
+                        clearInterval(checkAdsbyGoogle);
+                        if (isLoading) {
+                            setIsError(true);
+                            setIsLoading(false);
+                        }
+                    }, 5000);
+                }
             } catch (err) {
                 console.error('Error loading ad:', err);
                 setIsError(true);
@@ -75,7 +82,7 @@ export default function AdUnit({ adSlot, adFormat = 'auto', className = '' }: Ad
     if (isError || !adSlot || !clientId || !isReady || isBlocked) return null;
 
     return (
-        <div ref={adRef} className={`min-h-[100px] w-full ${className}`}>
+        <div ref={adRef} className={`min-h-[100px] w-full ${className}`} style={style}>
             {isLoading ? (
                 <div className="text-center text-sm text-gray-500 animate-pulse">
                     Loading advertisement...

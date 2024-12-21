@@ -323,7 +323,7 @@ export const projects: Project[] = [
         previewImages: [
             '/images/achievements/achievements-world.png'
         ],
-        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/maps/achievements-world/download/5520391',
+        downloadUrl: 'https://notnicto.com//downloads/AchievementWorld.mcworld',
         credits: [],
         terms: defaultTerms,
         author: defaultAuthor,
@@ -407,7 +407,7 @@ export const projects: Project[] = [
             'No gameplay changes',
             'Compatible with other packs'
         ],
-        category: 'addon',
+        category: 'texture-pack',
         version: '1.20+',
         size: '410kb',
         stars: 4.0,
