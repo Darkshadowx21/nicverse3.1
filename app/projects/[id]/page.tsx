@@ -16,18 +16,14 @@ import {
 import SpoilerPreview from '../components/SpoilerPreview';
 import { FeaturePreview } from '../components/FeaturePreview';
 import ImageGallery from '../components/ImageGallery';
-import { AdsDialog } from '../components/AdsDialog';
 import Script from 'next/script'
-import AdUnit from '../../components/AdUnit';
 import Breadcrumb from '../../components/Breadcrumb';
-import SideAd from '../../components/SideAd';
 
 const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
     const router = useRouter();
     const project = projects.find((p) => p.id === params.id);
     const [galleryOpen, setGalleryOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-    const [showAdsDialog, setShowAdsDialog] = useState(false);
 
     const getCategoryStyles = (category: string) => {
         switch (category) {
@@ -105,11 +101,6 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <div className="relative">
-                <SideAd
-                    adSlot={process.env.NEXT_PUBLIC_ADSENSE_LEFT_SIDEBAR_SLOT || ''}
-                    side="left"
-                />
-
                 <div className="container max-w-4xl mx-auto px-4 py-4 sm:px-6 sm:py-8 lg:py-12">
                     <Breadcrumb
                         items={[
@@ -118,11 +109,6 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                             { label: project.title }
                         ]}
                         className="text-sm sm:text-base"
-                    />
-
-                    <AdUnit
-                        adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_TOP_SLOT || ''}
-                        className="my-4 sm:my-6"
                     />
 
                     <div className="space-y-4 sm:space-y-6 lg:space-y-8">
@@ -206,11 +192,6 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                                 <FeaturePreview features={project.features} />
                             </div>
                         )}
-
-                        <AdUnit
-                            adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_MIDDLE_SLOT || ''}
-                            className="my-6"
-                        />
 
                         {/* Existing Screenshots & Credits & Terms */}
                         <Accordion type="single" collapsible className="w-full">
@@ -301,33 +282,17 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                             </AccordionItem>
                         </Accordion>
 
-                        <AdUnit
-                            adSlot={process.env.NEXT_PUBLIC_ADSENSE_PROJECT_BOTTOM_SLOT || ''}
-                            className="my-6"
-                        />
-
                         {/* Download Button */}
                         <div className="flex justify-center px-4 sm:px-0">
                             <Button
                                 size="lg"
                                 className={`w-full max-w-md bg-gradient-to-r ${categoryStyle.gradient} 
                                     hover:opacity-90 text-white text-sm sm:text-base py-6 sm:py-8`}
-                                onClick={() => setShowAdsDialog(true)}
+                                onClick={() => window.open(project.downloadUrl, '_blank')}
                             >
                                 <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> Download
                             </Button>
                         </div>
-
-                        <AdsDialog
-                            isOpen={showAdsDialog}
-                            onClose={() => {
-                                setShowAdsDialog(false);
-                            }}
-                            onComplete={() => {
-                                // Handle completion
-                            }}
-                            downloadUrl={project.downloadUrl}
-                        />
 
                         <ImageGallery
                             images={project.previewImages}
@@ -337,11 +302,6 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                         />
                     </div>
                 </div>
-
-                <SideAd
-                    adSlot={process.env.NEXT_PUBLIC_ADSENSE_RIGHT_SIDEBAR_SLOT || ''}
-                    side="right"
-                />
             </div>
         </>
     );

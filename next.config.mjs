@@ -5,7 +5,6 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  // Remove any redirects that might cause loops
 }
 
 export default nextConfig

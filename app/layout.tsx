@@ -4,12 +4,7 @@ import { ThemeProvider } from "./components/ThemeProvider"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import './globals.css'
-import GoogleAdsScript from './components/GoogleAdsScript'
-import ConditionalAds from './components/ConditionalAds'
-import AdUnit from './components/AdUnit'
 import GoogleAnalytics from './components/GoogleAnalytics'
-import { AdErrorBoundary } from './components/AdErrorBoundary'
-import { AdsenseProvider } from './components/AdsenseProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -77,53 +72,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <GoogleAdsScript />
         <GoogleAnalytics />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
-        <GoogleAdsScript />
         <GoogleAnalytics />
-
-        <AdsenseProvider>
-          <ThemeProvider>
-            <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors">
-              <Header />
-
-              <AdErrorBoundary>
-                <ConditionalAds />
-              </AdErrorBoundary>
-
-              <main className="flex-grow">
-                {children}
-              </main>
-
-              <div className="container mx-auto px-4 lg:px-32 xl:px-64">
-                <AdErrorBoundary>
-                  <AdUnit
-                    adSlot={process.env.NEXT_PUBLIC_ADSENSE_BOTTOM_SLOT || ''}
-                    className="my-4"
-                  />
-                </AdErrorBoundary>
-              </div>
-
-              <Footer />
-            </div>
-          </ThemeProvider>
-        </AdsenseProvider>
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener('load', function() {
-                if (window.adsbygoogle) {
-                  const event = new Event('adsLoaded');
-                  window.dispatchEvent(event);
-                }
-              });
-            `
-          }}
-        />
+        <ThemeProvider>
+          <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors">
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )
