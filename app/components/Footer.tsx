@@ -94,7 +94,7 @@ export default function Footer() {
                                     className="object-contain"
                                 />
                             </div>
-                            <span>© {new Date().getFullYear()} Darkverse LLC </span>
+                            <span>© {new Date().getFullYear()} notNicto.com </span>
                         </div>
 
                         {/* Center - Links - Use Next.js Link for internal navigation */}

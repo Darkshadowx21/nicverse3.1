@@ -186,7 +186,7 @@ function AboutPage() {
                         ['14+', 'Projects Completed', '🎯'],
                         ['600k+', 'Community Members', '👥'],
                         ['100M+', 'Video views', '🎬'],
-                        ['400k+', 'Total Downloads', '⭐']
+                        ['500k+', 'Total Downloads', '⭐']
                     ].map(([number, label, emoji]) => (
                         <div key={label}
                             className="group bg-background/50 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 text-center 

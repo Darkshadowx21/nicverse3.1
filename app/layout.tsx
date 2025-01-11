@@ -58,10 +58,7 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
     }],
-  },
-  verification: {
-    google: '6JQqJ_bae-gvhPS88cObqIziQbXr2Ddx8XQTzf6T5P8',
-  },
+  }
 }
 
 export default function RootLayout({
