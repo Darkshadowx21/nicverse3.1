@@ -38,7 +38,7 @@ const authors = {
 export const projects: Project[] = [
     {
         id: 'Overhaul',
-        title: 'Ultramarine Overhaul V4.3',
+        title: 'Ultramarine Overhaul 5.0',
         shortDescription: 'Upgrade your Minecraft experience with the Ultramarine Texture Pack!',
         fullDescription: 'Upgrade your Minecraft experience with the Ultramarine Texture Pack! Enjoy enhanced visuals, lag-free gameplay, and exciting new features with an in-built Shader supported by Render Dragon. Compatible with Minecraft Bedrock 1.20.40+.',
         features: [
@@ -56,6 +56,7 @@ export const projects: Project[] = [
         size: '11MB',
         stars: 4.8,
         previewImages: [
+            '/images/overhaul/ovehaul_5.png',
             '/images/overhaul/overhaul.png',
             '/images/overhaul/overhaul_menu.png',
             '/images/overhaul/overhaul_armor.png',
@@ -73,25 +74,25 @@ export const projects: Project[] = [
 
 
         ],
-        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5844796',
+        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/6197347',
         credits: [
             {
-                name: 'Utilities',
+                name: 'Quick Craft, Chat Helper, Brewing Guide, Trade Unlocker & Full Grass',
                 author: 'DrAv0011',
                 project: 'Bedrock Tweaks',
                 link: 'https://bedrocktweaks.net/'
-            },
-            {
-                name: 'Reimagined Clouds',
-                author: 'sparkskye',
-                project: 'Stellar Graphics',
-                link: 'https://mcpedl.com/stellar-graphics/'
             },
             {
                 name: 'Totem doll animation',
                 author: 'HyperF3GamerINDO',
                 project: 'Femboy Totem',
                 link: 'https://mcpedl.com/femboy-totem/'
+            },
+            {
+                name: 'FPS Counter',
+                author: 'Chainsketch',
+                project: 'FPS Counter Pack',
+                link: 'https://mcpedl.com/fps-counter-pack/'
             }
         ],
         terms: defaultTerms,
@@ -99,7 +100,7 @@ export const projects: Project[] = [
     },
     {
         id: 'Nightfall',
-        title: 'Ultramarine Nightfall 2.3',
+        title: 'Ultramarine Nightfall V 3.0',
         shortDescription: 'Best texture pack for Minecraft Bedrock Edition 1.21. Render DragonShader supported.',
         fullDescription: 'Best texture pack for Minecraft Bedrock Edition 1.21. Render DragonShader supported. Custom swords, ore textures, animations, and more. No lag. Perfect for enhancing gameplay.',
         features: [
@@ -111,13 +112,17 @@ export const projects: Project[] = [
             'Chat helper, Quick craft, brewing guide',
             'Item durability viewer',
             'Hud clock and compass',
+            'Colorful Containers',
+            'Cape physics',
+            'Added f1 button and fps counter',
+            'Glowing trims and colourful enchants',
         ],
         category: 'texture-pack',
         version: '1.21+',
         size: '11MB',
         stars: 4.8,
         previewImages: [
-            '/images/nightfall/nightfall.png',
+            '/images/nightfall/nightfall_3.0.png',
             '/images/nightfall/nightfall_main_menu.png',
             '/images/nightfall/nightfall_armor.png',
             '/images/nightfall/nightfall_cherry_fog.png',
@@ -132,25 +137,25 @@ export const projects: Project[] = [
             '/images/nightfall/nightfall_underwater_fog.png',
             '/images/nightfall/nightfall_warped_fog.png'
         ],
-        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/5834734',
+        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/6197358',
         credits: [
             {
-                name: 'Utilities',
+                name: 'Quick Craft, Chat Helper, Brewing Guide, Trade Unlocker & Full Grass',
                 author: 'DrAv0011',
                 project: 'Bedrock Tweaks',
                 link: 'https://bedrocktweaks.net/'
-            },
-            {
-                name: 'Reimagined Clouds',
-                author: 'sparkskye',
-                project: 'Stellar Graphics',
-                link: 'https://mcpedl.com/stellar-graphics/'
             },
             {
                 name: 'Totem doll animation',
                 author: 'HyperF3GamerINDO',
                 project: 'Femboy Totem',
                 link: 'https://mcpedl.com/femboy-totem/'
+            },
+            {
+                name: 'FPS Counter',
+                author: 'Chainsketch',
+                project: 'FPS Counter Pack',
+                link: 'https://mcpedl.com/fps-counter-pack/'
             }
         ],
         terms: defaultTerms,
@@ -227,7 +232,7 @@ export const projects: Project[] = [
             '/images/quickloot/quick_loot_plus.png',
             '/images/quickloot/quick_loot_normal.png'
         ],
-        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/5876850',
+        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/6188308',
         credits: [],
         terms: defaultTerms,
         author: defaultAuthor,

@@ -7,7 +7,7 @@ import {
   Gauge, Heart, Percent, MessageSquare, Sparkles, Wand2, 
   Apple, Trophy, Rocket, Hammer, Users, AlertCircle, BookOpen, Check,
   Brain, Zap, HeartPulse, MessageCircle, HandshakeIcon, 
-  UserCircle, Download, ShieldCheck, Puzzle
+  UserCircle, Download, ShieldCheck, Puzzle, Box, Wind, Monitor
 } from 'lucide-react';
 
 // Common icon styles
@@ -94,6 +94,12 @@ const featureIcons: Record<string, React.ReactNode> = {
   'Easy to install': <Download className={`${iconStyle} text-blue-400`} />,
   'No gameplay changes': <ShieldCheck className={`${iconStyle} text-red-500`} />,
   'Compatible with other packs': <Puzzle className={`${iconStyle} text-indigo-500`} />,
+
+  // New Nightfall Features
+  'Colorful Containers': <Box className={`${iconStyle} text-amber-500`} />,
+  'Cape physics': <Wind className={`${iconStyle} text-blue-400`} />,
+  'Added f1 button and fps counter': <Monitor className={`${iconStyle} text-gray-500`} />,
+  'Glowing trims and colourful enchants': <Sparkles className={`${iconStyle} text-purple-400`} />,
 };
 
 export function FeaturePreview({ features }: FeaturePreviewProps) {
