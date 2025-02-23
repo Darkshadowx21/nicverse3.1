@@ -8,16 +8,12 @@ export default function Hero() {
 
     return (
         <div className="relative h-screen w-full">
-            {/* Full-screen video background */}
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-            >
-                <source src="/bg.mp4" type="video/mp4" />
-            </video>
+            {/* Full-screen img background */}
+            <img
+    src="/bg.png"
+    alt="Background"
+    className="absolute inset-0 w-full h-full object-cover"
+/>
 
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/40" />

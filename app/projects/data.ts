@@ -100,7 +100,7 @@ export const projects: Project[] = [
     },
     {
         id: 'Nightfall',
-        title: 'Ultramarine Nightfall V 3.0',
+        title: 'Ultramarine Nightfall 3.0',
         shortDescription: 'Best texture pack for Minecraft Bedrock Edition 1.21. Render DragonShader supported.',
         fullDescription: 'Best texture pack for Minecraft Bedrock Edition 1.21. Render DragonShader supported. Custom swords, ore textures, animations, and more. No lag. Perfect for enhancing gameplay.',
         features: [
