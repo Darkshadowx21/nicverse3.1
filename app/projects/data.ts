@@ -38,7 +38,7 @@ const authors = {
 export const projects: Project[] = [
     {
         id: 'Overhaul',
-        title: 'Ultramarine Overhaul 5.0',
+        title: 'Ultramarine Overhaul 5.1',
         shortDescription: 'Upgrade your Minecraft experience with the Ultramarine Texture Pack!',
         fullDescription: 'Upgrade your Minecraft experience with the Ultramarine Texture Pack! Enjoy enhanced visuals, lag-free gameplay, and exciting new features with an in-built Shader supported by Render Dragon. Compatible with Minecraft Bedrock 1.20.40+.',
         features: [
@@ -74,7 +74,7 @@ export const projects: Project[] = [
 
 
         ],
-        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/6197347',
+        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/6223183',
         credits: [
             {
                 name: 'Quick Craft, Chat Helper, Brewing Guide, Trade Unlocker & Full Grass',
@@ -100,7 +100,7 @@ export const projects: Project[] = [
     },
     {
         id: 'Nightfall',
-        title: 'Ultramarine Nightfall 3.0',
+        title: 'Ultramarine Nightfall 3.1',
         shortDescription: 'Best texture pack for Minecraft Bedrock Edition 1.21. Render DragonShader supported.',
         fullDescription: 'Best texture pack for Minecraft Bedrock Edition 1.21. Render DragonShader supported. Custom swords, ore textures, animations, and more. No lag. Perfect for enhancing gameplay.',
         features: [
@@ -137,7 +137,7 @@ export const projects: Project[] = [
             '/images/nightfall/nightfall_underwater_fog.png',
             '/images/nightfall/nightfall_warped_fog.png'
         ],
-        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/6197358',
+        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/6223171',
         credits: [
             {
                 name: 'Quick Craft, Chat Helper, Brewing Guide, Trade Unlocker & Full Grass',
@@ -215,8 +215,39 @@ export const projects: Project[] = [
         author: defaultAuthor,
     },
     {
+        id: 'gui-overhaul',
+        title: 'GUI Overhaul',
+        shortDescription: 'Frustrated with the dull gray menu of your enchanting table? Want to add some color to your game?',
+        fullDescription: 'Frustrated with the dull gray menu of your enchanting table? Want to add some color to your game? Check out Gui overhaul, now in dark and light mode! This texture replaces the GUIs of various blocks, including the crafting table and furnace, with designs inspired by their respective blocks. Some menus even feature animations, bringing vibrant life to your Minecraft experience!',
+        features: [
+            'Colorful and vibrant UI',
+            'Enhanced interactions',
+            'Dark/light mode support',
+            'Compatible with other packs'
+        ],
+        category: 'texture-pack',
+        version: '1.20+',
+        size: '1mb',
+        stars: 4.0,
+        previewImages: [
+            '/images/gui/gui.png',
+            '/images/gui/Smithing-Table-(Dark).png',
+            '/images/gui/Smithing-Table-(Light).png',
+            '/images/gui/Ender-Chest-(Dark).png',
+            '/images/gui/Ender-Chest-(Light).png',
+            '/images/gui/Crafting-Table-(Dark).png',
+            '/images/gui/Crafting-Table-(Light).png',
+
+        ],
+        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/gui-overhaul/download/6300970',
+        credits: [],
+        terms: defaultTerms,
+        author: defaultAuthor,
+    },
+
+    {
         id: 'QuickLoot',
-        title: 'Better Quick Loot',
+        title: 'Better Quick Loot 2.1',
         shortDescription: 'This pack adds quick loot features for classic UI',
         fullDescription: 'This pack adds quick loot features for classic UI. So u can loot chests or any other container easily on mobile devices like u can do shift-click in pc. Also, there are two more buttons to drop one item at a time or a stack of items at a time.',
         features: [
@@ -232,7 +263,7 @@ export const projects: Project[] = [
             '/images/quickloot/quick_loot_plus.png',
             '/images/quickloot/quick_loot_normal.png'
         ],
-        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/6188308',
+        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/6223159',
         credits: [],
         terms: defaultTerms,
         author: defaultAuthor,
@@ -432,6 +463,7 @@ export const projects: Project[] = [
         terms: defaultTerms,
         author: authors.keshew,
     },
+   
 
 
 ];
