@@ -35,3 +35,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# PWA files
+**/public/workbox-*.js
+**/public/sw.js
+**/public/service-worker.js

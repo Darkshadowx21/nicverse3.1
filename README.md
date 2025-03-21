@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NicVerse
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Logo](https://notnicto.com//about-bg-2.png)
 
+NicVerse | Minecraft Bedrock Creations
+## Prerequisites
+
+
+Before you begin, you'll need to install two important pieces of software:
+
+### Install Node.js
+
+Node.js is required to run the application.
+
+1. Visit the [Node.js Download Page](https://nodejs.org/en/download/)
+2. Download the "LTS" (Long Term Support) version for your operating system
+3. Run the installer, accepting the default settings
+4. Verify Node.js is properly installed:
+   - **For Windows Users**:
+     1. Press `Windows + R`
+     2. Type "sysdm.cpl" and press Enter
+     3. Go to "Advanced" tab → "Environment Variables"
+     4. Check if `Node.js` appears in the "Path" variable
+   - **For Mac/Linux Users**:
+     1. Open Terminal
+     2. Type this command:
+        ```bash
+        echo $PATH
+        ```
+     3. Look for `/usr/local/bin` in the output
+    
+## Deployment
+
+1. Install Git: [Download Git](https://git-scm.com/downloads)
+
+#### Initial Setup
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/Darkshadowx21/nicverse3.1.git
+   ```
+
+2. **Navigate to Project Directory**:
+
+   ```bash
+   cd nicverse3.1
+   ```
+
+3. **Install Dependencies**:
+
+   ```bash
+   pnpm install
+   ```
+
+4. **Start the Development Server**:
+   ```bash
+   pnpm run dev
+   ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions are always welcome!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See `contributing.md` for ways to get started.
 
-## Learn More
+Please adhere to this project's `code of conduct`.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Authors
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [@Darkshadowx21](https://www.github.com/Darkshadowx21)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
