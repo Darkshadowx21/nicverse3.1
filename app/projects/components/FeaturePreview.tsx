@@ -111,7 +111,7 @@ export function FeaturePreview({ features }: FeaturePreviewProps) {
           className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
         >
           <div className="shrink-0 w-10 h-10 rounded-full bg-background flex items-center justify-center">
-            {featureIcons[feature] || <CircleDot className={`${iconStyle} text-muted-foreground`} />}
+            {featureIcons[feature] || <CircleDot className={`${iconStyle} text-muted-foreground`} aria-hidden="true" />}
           </div>
           <span className="text-sm font-medium">{feature}</span>
         </div>

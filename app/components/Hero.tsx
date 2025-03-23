@@ -2,18 +2,24 @@
 
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 export default function Hero() {
     const router = useRouter()
 
     return (
         <div className="relative h-screen w-full">
-            {/* Full-screen img background */}
-            <img
-    src="/bg.png"
-    alt="Background"
-    className="absolute inset-0 w-full h-full object-cover"
-/>
+            {/* Full-screen Image background */}
+            <div className="absolute inset-0">
+                <Image
+                    src="/bg.png"
+                    alt="Background"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover"
+                />
+            </div>
 
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/40" />

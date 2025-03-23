@@ -64,31 +64,7 @@ const Header = () => {
     }
   ]
 
-  // Check viewport width
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-      if (window.innerWidth >= 768) {
-        setIsMenuOpen(false)
-        unlockScroll()
-      }
-    }
-
-    if (typeof window !== 'undefined') {
-      checkMobile()
-      window.addEventListener('resize', checkMobile)
-
-      // Simulate loading
-      const timer = setTimeout(() => setIsLoading(false), 1500)
-
-      return () => {
-        window.removeEventListener('resize', checkMobile)
-        clearTimeout(timer)
-      }
-    }
-  }, [])
-
-  // Scroll locking functions
+  // Scroll locking functions - defined before they're used
   const lockScroll = useCallback(() => {
     if (!isMobile) return
 
@@ -113,6 +89,30 @@ const Header = () => {
       window.scrollTo(0, parseInt(scrollY || '0') * -1)
     }
   }, [])
+
+  // Check viewport width
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false)
+        unlockScroll()
+      }
+    }
+
+    if (typeof window !== 'undefined') {
+      checkMobile()
+      window.addEventListener('resize', checkMobile)
+
+      // Simulate loading
+      const timer = setTimeout(() => setIsLoading(false), 1500)
+
+      return () => {
+        window.removeEventListener('resize', checkMobile)
+        clearTimeout(timer)
+      }
+    }
+  }, [unlockScroll])
 
   // Apply scroll lock effect
   useEffect(() => {
@@ -308,6 +308,7 @@ const Header = () => {
                       </motion.ul>
                     </nav>
                   </div>
+
                   
                   {/* Theme toggle at bottom of sidebar */}
                   <div className="p-4 border-t border-gray-200 dark:border-gray-700">

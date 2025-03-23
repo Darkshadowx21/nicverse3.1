@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { useTheme } from './ThemeProvider'
 
 // Add these custom solid icon components
 function TwitterSolid(props: React.SVGProps<SVGSVGElement>) {
@@ -59,7 +58,8 @@ function CurseForgeIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export default function Footer() {
-    const { theme } = useTheme()
+    // Remove unused theme variable if it's not being used
+    // const { theme } = useTheme()
 
     return (
         <footer className="bg-background border-t">

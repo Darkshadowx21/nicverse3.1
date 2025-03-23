@@ -1,6 +1,17 @@
 import { Metadata, ResolvingMetadata } from 'next'
 import { projects } from '../data'
 
+// Define a Project interface to replace 'any'
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  fullDescription: string;
+  features: string[];
+  previewImages: string[];
+  // Add other properties as needed
+}
+
 type Props = {
   params: { id: string }
   children: React.ReactNode
@@ -14,7 +25,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
   const project = projects.find(p => p.id === params.id)
   
@@ -82,7 +93,7 @@ export async function generateMetadata(
   }
 }
 
-function generateStructuredData(project: any) {
+function generateStructuredData(project: Project) {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
