@@ -1,4 +1,4 @@
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 import { projects } from '../data'
 
 // Define a Project interface to replace 'any'
@@ -24,8 +24,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  { params }: Props,
-  _parent: ResolvingMetadata
+  { params }: Props
 ): Promise<Metadata> {
   const project = projects.find(p => p.id === params.id)
   

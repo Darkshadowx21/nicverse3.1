@@ -3,7 +3,7 @@
 import React from 'react';
 import {
   Moon, Layout, Cloud, Boxes, Grid3X3, MessageSquareText, Timer, 
-  Compass, Package, CircleDot, Palette, Swords, Image, Settings, 
+  Compass, Package, CircleDot, Palette, Swords, Image as ImageIcon, Settings, 
   Gauge, Heart, Percent, MessageSquare, Sparkles, Wand2, 
   Apple, Trophy, Rocket, Hammer, Users, AlertCircle, BookOpen, Check,
   Brain, Zap, HeartPulse, MessageCircle, HandshakeIcon, 
@@ -34,7 +34,7 @@ const featureIcons: Record<string, React.ReactNode> = {
   // Neo Features
   'Colorful UI': <Palette className={`${iconStyle} text-pink-500`} />,
   'PVP Mode': <Swords className={`${iconStyle} text-red-500`} />,
-  'Smoother textures and particles': <Image className={`${iconStyle} text-violet-500`} />,
+  'Smoother textures and particles': <ImageIcon className={`${iconStyle} text-violet-500`} />,
   'Custom sky': <Cloud className={`${iconStyle} text-blue-400`} />,
   'Compact settings': <Settings className={`${iconStyle} text-gray-500`} />,
   'FPS counter': <Gauge className={`${iconStyle} text-green-500`} />,
@@ -73,7 +73,7 @@ const featureIcons: Record<string, React.ReactNode> = {
   'Hit particles ✨': <Sparkles className={`${iconStyle} text-pink-500`} />,
   'Block breaking animations': <Hammer className={`${iconStyle} text-red-500`} />,
   'Outlined ores': <Grid3X3 className={`${iconStyle} text-emerald-500`} />,
-  'Invisible item frames': <Image className={`${iconStyle} text-gray-400`} />,
+  'Invisible item frames': <ImageIcon className={`${iconStyle} text-gray-400`} />,
   'Dragon wings elytra': <Rocket className={`${iconStyle} text-purple-400`} />,
   'Crown 👑 model instead of golden helmet': <Trophy className={`${iconStyle} text-yellow-500`} />,
   'Animated totem!': <Sparkles className={`${iconStyle} text-amber-500`} />,
@@ -118,4 +118,4 @@ export function FeaturePreview({ features }: FeaturePreviewProps) {
       ))}
     </div>
   );
-} 
+}
