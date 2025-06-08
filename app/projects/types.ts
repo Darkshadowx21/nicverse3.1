@@ -10,15 +10,20 @@ export interface Project {
   stars: number;
   previewImages: string[];
   downloadUrl: string;
-  author?: {
+  versionLinks?: {
+    version: string;
+    downloadUrl: string;
+    isEnabled?: boolean;
+  }[];
+  author: {
     name: string;
     avatar: string;
     role: string;
   };
   credits: {
     name: string;
-    project: string;
     author: string;
+    project: string;
     link: string;
   }[];
   terms: {

@@ -1,42 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { Star, Download } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { Project } from '../types';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
 import { useRouter } from 'next/navigation';
-
-const categoryStyles = {
-  'texture-pack': {
-    text: 'text-blue-600 dark:text-blue-400',
-    bg: 'bg-blue-500/10',
-    border: 'border-blue-500/30',
-    hover: 'hover:text-blue-500',
-    gradient: 'from-blue-500 to-blue-600'
-  },
-  'addon': {
-    text: 'text-green-600 dark:text-green-400',
-    bg: 'bg-green-500/10',
-    border: 'border-green-500/30',
-    hover: 'hover:text-green-500',
-    gradient: 'from-green-500 to-green-600'
-  },
-  'skin': {
-    text: 'text-orange-600 dark:text-orange-400',
-    bg: 'bg-orange-500/10',
-    border: 'border-orange-500/30',
-    hover: 'hover:text-orange-500',
-    gradient: 'from-orange-500 to-orange-600'
-  },
-  'map': {
-    text: 'text-red-600 dark:text-red-400',
-    bg: 'bg-red-500/10',
-    border: 'border-red-500/30',
-    hover: 'hover:text-red-500',
-    gradient: 'from-red-500 to-red-600'
-  }
-} as const;
 
 interface ProjectCardProps {
   project: Project;
@@ -44,85 +11,74 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const router = useRouter();
-  const styles = categoryStyles[project.category as keyof typeof categoryStyles] || {
-    text: 'text-purple-600 dark:text-purple-400',
-    bg: 'bg-purple-500/10',
-    border: 'border-purple-500/30',
-    hover: 'hover:text-purple-500',
-    gradient: 'from-purple-500 to-purple-600'
-  };
 
   return (
     <Card 
-      className={`group overflow-hidden h-full flex flex-col transition-all duration-300 
-        border-2 shadow-sm hover:shadow-md ${styles.border} 
-        hover:scale-[1.02] hover:${styles.bg}`}
+      className="group overflow-hidden bg-black rounded-2xl border-0 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer relative h-[240px]"
+      onClick={() => router.push(`/projects/${project.id}`)}
     >
-      <CardHeader className="p-0">
-        <div className="relative w-full aspect-[16/9] overflow-hidden">
-          <Image
-            src={project.previewImages[0]}
-            alt={project.title}
-            fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+      {/* Main image that fills the entire card */}
+      <div className="relative w-full h-full">
+        <Image
+          src={project.previewImages[0]}
+          alt={project.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+        
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 to-transparent"></div>
+      </div>
+      
+      {/* Title and subtitle */}
+      <div className="absolute bottom-14 left-0 right-0 px-4">
+        <h3 className="font-medium text-xl text-white">
+          {project.title}
+        </h3>
+        {/* {project.shortDescription && (
+          <h4 className="text-base text-white/70 truncate">
+            {project.shortDescription.split(' ').slice(0, 2).join(' ')}
+          </h4>
+        )} */}
+      </div>
+      
+      {/* Bottom bar with rating and app details */}
+      <div className="absolute bottom-0 left-0 right-0 px-4 py-3 flex items-center">
+        {/* Rating */}
+        <div className="flex items-center">
+          <span className="font-medium text-sm mr-1 text-white">{project.stars.toFixed(1)}</span>
+          <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
         </div>
-      </CardHeader>
-      <CardContent className="p-4 flex-grow">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className={`font-semibold text-base sm:text-lg line-clamp-2 transition-colors ${styles.text}`}>
-            {project.title}
-          </h3>
-          <Badge className={`${styles.bg} ${styles.text} border-none`}>
-            {project.category}
-          </Badge>
-        </div>
-
-        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{project.shortDescription}</p>
-
-        <div className="flex items-center justify-between">
-          {project.author && (
-            <div className="flex items-center gap-2">
-              <div className="relative w-6 h-6 sm:w-7 sm:h-7">
-                <Image
-                  src={project.author.avatar}
-                  alt={project.author.name}
-                  fill
-                  className="rounded-full object-cover border border-gray-200 dark:border-gray-800"
-                  sizes="(max-width: 640px) 24px, 28px"
-                />
+        
+        {/* Google Play icon */}
+        {/* <div className="mx-2">
+          <svg className="w-4 h-4" viewBox="0 0 512 512">
+            <path fill="#ffffff" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.6 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+          </svg>
+        </div> */}
+        
+        {/* Right side - App icon or price */}
+        <div className="ml-auto">
+          {(project as any).price ? (
+            <span className="text-sm font-medium text-white">₹{(project as any).price}</span>
+          ) : (
+            project.author && (
+              <div className="relative">
+                <div className="w-10 h-10 relative rounded-xl overflow-hidden border border-gray-700">
+                  <Image
+                    src={project.author.avatar}
+                    alt={`${project.title} icon`}
+                    fill
+                    className="object-cover"
+                    sizes="40px"
+                  />
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-100">
-                  {project.author.name}
-                </span>
-                <span className="text-[10px] sm:text-xs text-muted-foreground">
-                  {project.author.role}
-                </span>
-              </div>
-            </div>
+            )
           )}
-
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1">
-              <Star className={`w-4 h-4 ${styles.text}`} /> {project.stars}
-            </span>
-            <span className="text-sm text-muted-foreground">{project.version}</span>
-            <span className="text-sm text-muted-foreground">{project.size}</span>
-          </div>
         </div>
-      </CardContent>
-      <CardFooter className="p-4 pt-0">
-        <Button
-          onClick={() => router.push(`/projects/${project.id}`)}
-          variant="outline"
-          size="sm"
-          className={`w-full ${styles.border} ${styles.bg} ${styles.text}`}
-        >
-          <Download className="w-4 h-4 mr-2" /> Download
-        </Button>
-      </CardFooter>
+      </div>
     </Card>
   );
 };

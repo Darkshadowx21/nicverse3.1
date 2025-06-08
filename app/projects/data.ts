@@ -29,7 +29,7 @@ const defaultTerms = {
 // First, define your authors (you can put this at the top of data.ts)
 const authors = {
     keshew: {
-        name: 'Keshew1313',
+        name: 'Keshew13',
         avatar: '/keshew1313.png',
         role: 'Collaborator'
     }
@@ -75,6 +75,65 @@ export const projects: Project[] = [
 
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/6223183',
+        versionLinks: [
+            {
+                "version": "Ultramarine Overhaul 5.1",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/6223183",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 5.0",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/6197347",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 4.3",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5844796",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 4.2",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5756454",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 4.1",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5732148",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 4.0",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5730677",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 3.2",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5465273",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 3.1",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5441066",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 3.0",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5436064",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 2.0",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5365938",
+                "isEnabled": true
+            },
+            {
+                "version": "Ultramarine Overhaul 1.0",
+                "downloadUrl": "https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine/download/5365936",
+                "isEnabled": true
+            }
+        ]
+
+        ,
         credits: [
             {
                 name: 'Quick Craft, Chat Helper, Brewing Guide, Trade Unlocker & Full Grass',
@@ -138,6 +197,54 @@ export const projects: Project[] = [
             '/images/nightfall/nightfall_warped_fog.png'
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/6223171',
+        versionLinks: [
+            {
+                version: 'Ultramarine Nightfall 3.1',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/6223171',
+                isEnabled: true
+            },
+            {
+                version: 'Ultramarine Nightfall 3.0',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/6197358',
+                isEnabled: true
+            },
+            {
+                version: 'Ultramarine Nightfall 3.0 beta',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/6188317',
+                isEnabled: true
+            },
+            {
+                version: 'Ultramarine Nightfall 2.3',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/5834734',
+                isEnabled: true
+            },
+            {
+                version: 'Ultramarine Nightfall 2.2',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/5756275',
+                isEnabled: true
+            },
+            {
+                version: 'Ultramarine Nightfall 2.1',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/5732147',
+                isEnabled: true
+            },
+            {
+                version: 'Ultramarine Nightfall 2.0',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/5728479',
+                isEnabled: true
+            },
+            {
+                version: 'Ultramarine Nightfall 1.1',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/5477144',
+                isEnabled: true
+            },
+            {
+                version: 'Ultramarine Nightfall 1.0',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/ultramarine-nightfall/download/5462297',
+                isEnabled: true
+            }
+        ]
+        ,
         credits: [
             {
                 name: 'Quick Craft, Chat Helper, Brewing Guide, Trade Unlocker & Full Grass',
@@ -401,10 +508,10 @@ export const projects: Project[] = [
         downloadUrl: 'https://direct-link.net/1040896/shadow-smash',
         credits: [
             {
-                name: 'Keshew1313',
-                author: 'Keshew1313',
+                name: 'Keshew13',
+                author: 'Keshew13',
                 project: 'Shadow Smash',
-                link: 'https://www.youtube.com/@Keshew1313'
+                link: 'https://www.youtube.com/@Keshew13'
             },
             {
                 name: 'Bedrock tweaks',
@@ -449,21 +556,101 @@ export const projects: Project[] = [
         stars: 4.0,
         previewImages: [
             '/images/villager/villager.png',
-            '/images/villager/villager-pack-ui.png'
         ],
         downloadUrl: 'https://link-target.net/1040896/talking-villagers-pack',
         credits: [
             {
-                name: 'Keshew1313',
-                author: 'Keshew1313',
+                name: 'Keshew13',
+                author: 'Keshew13',
                 project: 'Shadow Smash',
-                link: 'https://www.youtube.com/@Keshew1313'
+                link: 'https://www.youtube.com/@Keshew13'
             }
         ],
         terms: defaultTerms,
         author: authors.keshew,
     },
-   
+    {
+        id: 'clutch-craft',
+        title: 'Clutch Craft',
+        shortDescription: 'Embark on an epic journey through ten levels of pulse-pounding challenges',
+        fullDescription: 'Welcome,players, to the Clutch Craft! Embark on an epic journey through ten levels of pulse-pounding challenges, where only the most daring and skilled players will emerge victorious. Each level presents a unique test of your Minecraft prowess, pushing you to the limits of your abilities with the most demanding MLG maneuvers, death-defying clutches, and precision jumps imaginable.',
+        features: [],
+        category: 'map',
+        version: '1.20+',
+        size: '410kb',
+        stars: 4.0,
+        previewImages: [
+            '/images/clutchcraft/clutch-craft.png',
+            '/images/clutchcraft/clutch-craft_2.png',
+            '/images/clutchcraft/clutch-craft_3.png',
+            '/images/clutchcraft/clutch-craft_5.png',
+            '/images/clutchcraft/clutch-craft_6.png',
+            '/images/clutchcraft/clutch-craft_7.png',
+            '/images/clutchcraft/clutch-craft_8.png'
+        ],
+        downloadUrl: 'https://link-center.net/1040896/clutch-craft',
+        credits: [
+            {
+                name: 'Keshew13',
+                author: 'Keshew13',
+                project: 'clutch craft',
+                link: 'https://www.youtube.com/@Keshew13'
+            }
+        ],
+        terms: defaultTerms,
+        author: authors.keshew,
+    },
+    {
+        id: 'mini-parkour',
+        title: 'Mini Parkour Map',
+        shortDescription: 'Are you ready to challenge yourself for this parkour map. Welcome to the " Mini Parkour Map"',
+        fullDescription: 'Are you ready to challenge yourself for this parkour map. Welcome to the " Mini Parkour Map". In this parkour map, you will enhance your parkour skills+ reflexes by doing mlg at the perfect time. "Mini parkour map " is small but full of best parkour jumps and mlg . It is both both for beginners and pro parkour lovers. This map is designed to test your skills and reflexes, pushing you to the limits of your abilities with the most demanding MLG maneuvers, death-defying clutches, and precision jumps imaginable.',
+        features: [],
+        category: 'map',
+        version: '1.20+',
+        size: '157kb',
+        stars: 5.0,
+        previewImages: [
+            '/images/miniparkour/mini-parkour.png',
+            '/images/miniparkour/mini-parkour2.png',
+        ],
+        downloadUrl: 'https://direct-link.net/1040896/mini-parkour-map1',
+        credits: [
+            {
+                name: 'Keshew13',
+                author: 'Keshew13',
+                project: 'mini-parkour',
+                link: 'https://www.youtube.com/@Keshew13'
+            }
+        ],
+        terms: defaultTerms,
+        author: authors.keshew,
+    },
+    {
+        id: 'new-practice-map',
+        title: 'Neo Practice Map',
+        shortDescription: 'Known for its difficulty, the "Neo Jump" requires precise timing and skill to leap around obstacles.',
+        fullDescription: 'Known for its difficulty, the "Neo Jump" requires precise timing and skill to leap around obstacles. This map offers a series of practice scenarios that gradually increase in complexity, allowing both beginners and experienced parkour players to refine their technique and improve their performance. Get ready to jump, twist, and turn like a pro!',
+        features: [],
+        category: 'map',
+        version: '1.20+',
+        size: '157kb',
+        stars: 5.0,
+        previewImages: [
+            '/images/miniparkour/neo.png'
+        ],
+        downloadUrl: 'https://direct-link.net/1040896/neo-practice-map',
+        credits: [
+            {
+                name: 'Keshew13',
+                author: 'Keshew13',
+                project: 'new-practice-map',
+                link: 'https://www.youtube.com/@Keshew13'
+            }
+        ],
+        terms: defaultTerms,
+        author: authors.keshew,
+    },
 
 
 ];
