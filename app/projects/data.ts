@@ -304,18 +304,30 @@ export const projects: Project[] = [
             '/images/neo/neo-particles.png'
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/neo-ui-pack-and-shader/download/5847904',
+        versionLinks: [
+            {
+                version: 'Neo Texture Pack V6.1',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/neo-ui-pack-and-shader/download/5847904',
+                isEnabled: true
+            },
+            {
+                version: 'Neo Texture Pack V6',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/neo-ui-pack-and-shader/download/5363256',
+                isEnabled: true
+            },
+            {
+                version: 'Neo Texture Pack V5',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/neo-ui-pack-and-shader/download/5346350',
+                isEnabled: true
+            }
+        ],
+
         credits: [
             {
                 name: 'Bedrock tweaks',
                 author: 'DrAv0011',
                 project: 'Bedrock Tweaks',
                 link: 'https://bedrocktweaks.net/'
-            },
-            {
-                name: 'Fps counter',
-                author: 'Chainsketch',
-                project: 'FPS Counter Pack',
-                link: 'https://mcpedl.com/fps-counter-pack/'
             }
         ],
         terms: defaultTerms,
@@ -371,6 +383,38 @@ export const projects: Project[] = [
             '/images/quickloot/quick_loot_normal.png'
         ],
         downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/6223159',
+        versionLinks: [
+            {
+                version: 'Better Quick Loot V2.1',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/6223159',
+                isEnabled: true
+            },
+            {
+                version: 'Better Quick Loot V2',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/6188308',
+                isEnabled: true
+            },
+            {
+                version: 'Better Quick Loot V1.1',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/5876850',
+                isEnabled: true
+            },
+            {
+                version: 'Better Quick Loot',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/5756324',
+                isEnabled: true
+            },
+            {
+                version: 'Quick Loot+',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/5739251',
+                isEnabled: true
+            },
+            {
+                version: 'Quick Loot for ultramarine',
+                downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/5728461',
+                isEnabled: true
+            }
+        ],
         credits: [],
         terms: defaultTerms,
         author: defaultAuthor,
@@ -416,7 +460,7 @@ export const projects: Project[] = [
             '/images/crafteverything/craft-everthing-settings.png',
             '/images/crafteverything/craft-everything_2.png'
         ],
-        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/texture-packs/quick-loot/download/5876850',
+        downloadUrl: 'https://www.curseforge.com/minecraft-bedrock/addons/craft-everything/download/5366745',
         credits: [],
         terms: defaultTerms,
         author: defaultAuthor,
