@@ -38,7 +38,7 @@ const authors = {
 export const projects: Project[] = [
     {
         id: 'Overhaul',
-        title: 'Ultramarine Overhaul 5.1',
+        title: 'Ultramarine Overhaul',
         shortDescription: 'Upgrade your Minecraft experience with the Ultramarine Texture Pack!',
         fullDescription: 'Upgrade your Minecraft experience with the Ultramarine Texture Pack! Enjoy enhanced visuals, lag-free gameplay, and exciting new features with an in-built Shader supported by Render Dragon. Compatible with Minecraft Bedrock 1.20.40+.',
         features: [
@@ -56,6 +56,7 @@ export const projects: Project[] = [
         size: '11MB',
         stars: 4.8,
         previewImages: [
+            '/images/overhaul/overhaul.gif',
             '/images/overhaul/ovehaul_5.png',
             '/images/overhaul/overhaul.png',
             '/images/overhaul/overhaul_menu.png',
@@ -159,7 +160,7 @@ export const projects: Project[] = [
     },
     {
         id: 'Nightfall',
-        title: 'Ultramarine Nightfall 3.1',
+        title: 'Ultramarine Nightfall',
         shortDescription: 'Best texture pack for Minecraft Bedrock Edition 1.21. Render DragonShader supported.',
         fullDescription: 'Best texture pack for Minecraft Bedrock Edition 1.21. Render DragonShader supported. Custom swords, ore textures, animations, and more. No lag. Perfect for enhancing gameplay.',
         features: [
@@ -181,6 +182,7 @@ export const projects: Project[] = [
         size: '11MB',
         stars: 4.8,
         previewImages: [
+            '/images/nightfall/nightfall.gif',
             '/images/nightfall/nightfall_3.0.png',
             '/images/nightfall/nightfall_main_menu.png',
             '/images/nightfall/nightfall_armor.png',
@@ -366,7 +368,7 @@ export const projects: Project[] = [
 
     {
         id: 'QuickLoot',
-        title: 'Better Quick Loot 2.1',
+        title: 'Better Quick Loot',
         shortDescription: 'This pack adds quick loot features for classic UI',
         fullDescription: 'This pack adds quick loot features for classic UI. So u can loot chests or any other container easily on mobile devices like u can do shift-click in pc. Also, there are two more buttons to drop one item at a time or a stack of items at a time.',
         features: [
@@ -378,6 +380,7 @@ export const projects: Project[] = [
         size: '2MB',
         stars: 4.2,
         previewImages: [
+            '/images/quickloot/quick_loot.gif',
             '/images/quickloot/quick_loot.png',
             '/images/quickloot/quick_loot_plus.png',
             '/images/quickloot/quick_loot_normal.png'
