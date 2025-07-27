@@ -32,7 +32,7 @@ export default function Hero() {
                     </h2>
 
                     <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-wider">
-                        <span className="text-[#FF00FF] flex justify-center gap-3 sm:gap-4 md:gap-5">
+                        <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent flex justify-center gap-3 sm:gap-4 md:gap-5">
                             <span>N</span>
                             <span>I</span>
                             <span>C</span>
@@ -48,7 +48,7 @@ export default function Hero() {
                         <span className="text-yellow-400">✨</span> WHERE MINECRAFT MEETS CREATIVITY <span className="text-yellow-400">✨</span>
                     </p>
 
-                    <div className="pt-4">
+                    <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Button
                             size="lg"
                             className="bg-black/50 hover:bg-black/70 text-white px-12 py-6 
@@ -58,6 +58,17 @@ export default function Hero() {
                             onClick={() => router.push('/projects')}
                         >
                             Explore
+                        </Button>
+                        
+                        <Button
+                            size="lg"
+                            className="bg-black/50 hover:bg-black/70 text-white px-12 py-6 
+                                     text-xl font-medium tracking-widest uppercase transition-all 
+                                     duration-300 hover:scale-105 rounded-xl 
+                                      backdrop-blur-sm"
+                            onClick={() => window.open('https://tools.notnicto.com', '_blank')}
+                        >
+                            Tools
                         </Button>
                     </div>
                 </div>

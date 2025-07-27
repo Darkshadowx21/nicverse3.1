@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Star, Download, ArrowLeft, ChevronDown, X } from 'lucide-react';
+import { Star, Download, ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { projects } from '../data';
@@ -13,13 +13,6 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogDescription,
-} from "@/components/ui/dialog";
 import SpoilerPreview from '../components/SpoilerPreview';
 import { FeaturePreview } from '../components/FeaturePreview';
 import ImageGallery from '../components/ImageGallery';
@@ -31,26 +24,6 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
     const project = projects.find((p) => p.id === params.id);
     const [galleryOpen, setGalleryOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-    const [selectedVersion, setSelectedVersion] = useState(project?.version || "");
-    const [isDownloadDialogOpen, setIsDownloadDialogOpen] = useState(false);
-    
-    // Get available versions from project data, filtered by enabled status
-    const availableVersions = project?.versionLinks
-        ?.filter(v => v.isEnabled !== false) // Show if isEnabled is true or undefined
-        ?.map(v => v.version) || 
-        // Fallback to current version only if no versionLinks provided
-        (project ? [project.version] : []);
-
-    // Check if we have multiple versions available
-    const hasMultipleVersions = availableVersions.length > 1;
-
-    const handleDownload = (version: string) => {
-        // Find the specific version link or use default
-        const versionLink = project?.versionLinks?.find(v => v.version === version)?.downloadUrl || project?.downloadUrl;
-        window.open(versionLink, '_blank');
-        setIsDownloadDialogOpen(false);
-        setSelectedVersion(version);
-    };
 
     const getCategoryStyles = (category: string) => {
         switch (category) {
@@ -314,49 +287,12 @@ const ProjectDetailPage = ({ params }: { params: { id: string } }) => {
                             <Button
                                 size="lg"
                                 className={`w-full max-w-md bg-gradient-to-r ${categoryStyle.gradient} 
-                                    hover:opacity-90 text-white text-sm sm:text-base py-6 sm:py-8 flex items-center justify-center font-medium shadow-md rounded-lg`}
-                                onClick={() => {
-                                    if (hasMultipleVersions) {
-                                        setIsDownloadDialogOpen(true);
-                                    } else {
-                                        // If only one version, download it directly
-                                        handleDownload(availableVersions[0]);
-                                    }
-                                }}
+                                    hover:opacity-90 text-white text-sm sm:text-base py-6 sm:py-8`}
+                                onClick={() => window.open(project.downloadUrl, '_blank')}
                             >
-                                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-pulse" /> 
-                                Download {selectedVersion ? `(${selectedVersion})` : ''}
+                                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> Download
                             </Button>
                         </div>
-
-                        {/* Download Dialog - Only shown if multiple versions available */}
-                        {hasMultipleVersions && (
-                            <Dialog open={isDownloadDialogOpen} onOpenChange={setIsDownloadDialogOpen}>
-                                <DialogContent className="sm:max-w-md">
-                                    <DialogHeader>
-                                        <DialogTitle className="text-center text-xl font-bold">Select Version</DialogTitle>
-                                        <DialogDescription className="text-center">
-                                            Choose the version you want to download
-                                        </DialogDescription>
-                                    </DialogHeader>
-                                    <div className="grid gap-4 py-4">
-                                        {availableVersions.map((version) => (
-                                            <Button
-                                                key={version}
-                                                onClick={() => handleDownload(version)}
-                                                className={`w-full py-6 text-base font-medium ${
-                                                    version === project.version 
-                                                    ? `bg-gradient-to-r ${categoryStyle.gradient} text-white hover:opacity-90` 
-                                                    : 'bg-secondary hover:bg-secondary/80'
-                                                }`}
-                                            >
-                                                Version {version}
-                                            </Button>
-                                        ))}
-                                    </div>
-                                </DialogContent>
-                            </Dialog>
-                        )}
 
                         <ImageGallery
                             images={project.previewImages}
